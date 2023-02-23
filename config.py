@@ -7,6 +7,8 @@ def get_config():
     config = argparse.ArgumentParser()
 
     # basic hyperparams to specify where to load/save data from/to
+    parser.add_argument('--config', is_config_file=True, 
+                        help='config file path')
     config.add_argument("--log_dir", type=str, default="log")
     config.add_argument("--dataset_name", type=str, default="blender")
     config.add_argument("--scene", type=str, default="lego")

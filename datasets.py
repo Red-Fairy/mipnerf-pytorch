@@ -266,7 +266,7 @@ class Blender(NeRFDataset):
         cams = []
         for i in range(len(meta['frames'])):
             frame = meta['frames'][i]
-            fname = os.path.join(self.base_dir, frame['file_path'] + '.png')
+            fname = os.path.join(self.base_dir, frame['file_path'] + '.png') if 'png' not in frame['file_path'] else os.path.join(self.base_dir, frame['file_path'])
             with open(fname, 'rb') as imgin:
                 image = np.array(Image.open(imgin), dtype=np.float32) / 255.
                 if self.factor >= 2:
